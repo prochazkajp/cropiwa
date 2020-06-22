@@ -32,17 +32,8 @@ class CropBitmapImageTask extends AsyncTask<Void, Void, Throwable> {
 	@Override
 	protected Throwable doInBackground(Void... params) {
 		try {
-
 			Bitmap cropped = cropArea.applyCropTo(bitmap);
-
 			bitmap = mask.applyMaskTo(cropped);
-
-//			Uri dst = saveConfig.getDstUri();
-//			OutputStream os = context.getContentResolver().openOutputStream(dst);
-//			cropped.compress(saveConfig.getCompressFormat(), saveConfig.getQuality(), os);
-//			CropIwaUtils.closeSilently(os);
-
-			cropped.recycle();
 		} catch (Exception e) {
 			return e;
 		}
