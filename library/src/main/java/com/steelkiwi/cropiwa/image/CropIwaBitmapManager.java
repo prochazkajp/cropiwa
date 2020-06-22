@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.steelkiwi.cropiwa.OnCroppedListener;
 import com.steelkiwi.cropiwa.config.CropIwaSaveConfig;
 import com.steelkiwi.cropiwa.shape.CropIwaShapeMask;
 import com.steelkiwi.cropiwa.util.CropIwaLog;
@@ -74,6 +75,13 @@ public class CropIwaBitmapManager {
         CropImageTask cropTask = new CropImageTask(
                 context.getApplicationContext(),
                 cropArea, mask, uri, saveConfig);
+        cropTask.execute();
+    }
+
+    public void cropBitmap(CropArea cropArea, CropIwaShapeMask mask, Bitmap bitmap,
+                           OnCroppedListener listener) {
+        CropBitmapImageTask cropTask = new CropBitmapImageTask(
+                cropArea, mask, bitmap, listener);
         cropTask.execute();
     }
 

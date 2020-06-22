@@ -187,6 +187,16 @@ public class CropIwaView extends FrameLayout {
                 imageUri, saveConfig);
     }
 
+    public void cropBitmap(Bitmap bitmap, OnCroppedListener listener) {
+        CropArea cropArea = CropArea.create(
+                imageView.getImageRect(),
+                imageView.getImageRect(),
+                overlayView.getCropRect());
+        CropIwaShapeMask mask = overlayConfig.getCropShape().getMask();
+        CropIwaBitmapManager.get().cropBitmap(cropArea, mask,
+                bitmap, listener);
+    }
+
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
