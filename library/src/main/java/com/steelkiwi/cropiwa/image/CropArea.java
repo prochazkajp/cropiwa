@@ -37,7 +37,7 @@ public class CropArea {
                 findRealCoordinate(bitmap.getHeight(), cropRect.top, imageRect.height()),
                 findRealCoordinate(bitmap.getWidth(), cropRect.width(), imageRect.width()),
                 findRealCoordinate(bitmap.getHeight(), cropRect.height(), imageRect.height()));
-        return immutableCropped.copy(immutableCropped.getConfig(), true);
+        return immutableCropped.copy(Bitmap.Config.RGB_565, true);
     }
 
 
