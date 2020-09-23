@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.panpf.bintray-publish'
 
 android {
     compileSdkVersion 30
@@ -30,6 +30,7 @@ publish {
     groupId = rootProject.groupId
     uploadName = rootProject.uploadName
     publishVersion = rootProject.publishVersion
-    description = rootProject.description
+    desc = rootProject.desc
+    website = rootProject.website
     licences = rootProject.licences
 }
