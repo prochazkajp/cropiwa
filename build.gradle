@@ -28,7 +28,7 @@ ext {
     uploadName = 'cropiwa'
     desc = 'Configurable Custom Crop widget for Android'
     website = 'https://github.com/steelkiwi/cropiwa'
-    publishVersion = '2.1.0'
+    publishVersion = '2.1.1'
     licences = ['Apache-2.0']
 }
 
