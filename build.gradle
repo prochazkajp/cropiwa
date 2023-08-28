@@ -3,23 +3,23 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:4.0.1'
-        classpath 'com.github.panpf.bintray-publish:bintray-publish:1.0.0'
+        classpath 'com.android.tools.build:gradle:8.1.1'
     }
 }
 
 allprojects {
     repositories {
         google()
+        mavenCentral()
         jcenter()
     }
 }
 
 task clean(type: Delete) {
-    delete rootProject.buildDir
+    delete rootProject.layout.buildDirectory
 }
 
 ext {
@@ -28,7 +28,7 @@ ext {
     uploadName = 'cropiwa'
     desc = 'Configurable Custom Crop widget for Android'
     website = 'https://github.com/steelkiwi/cropiwa'
-    publishVersion = '2.0.0'
+    publishVersion = '2.1.0'
     licences = ['Apache-2.0']
 }
 
