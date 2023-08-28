@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 
 /**
@@ -45,7 +46,11 @@ public class CropIwaResultReceiver extends BroadcastReceiver {
 
     public void register(Context context) {
         IntentFilter filter = new IntentFilter(ACTION_CROP_COMPLETED);
-        context.registerReceiver(this, filter);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            context.registerReceiver(this, filter, Context.RECEIVER_EXPORTED);
+        } else {
+            context.registerReceiver(this, filter);
+        }
     }
 
     public void unregister(Context context) {
