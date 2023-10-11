@@ -44,13 +44,11 @@ public class ChooseImageForCropFragment extends BottomSheetDialogFragment implem
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.btn_random_image:
-                startCropActivity(getRandomImageUri());
-                break;
-            case R.id.btn_from_gallery:
-                startGalleryApp();
-                break;
+        int id = v.getId();
+        if (id == R.id.btn_random_image) {
+            startCropActivity(getRandomImageUri());
+        } else if (id == R.id.btn_from_gallery) {
+            startGalleryApp();
         }
     }
 
@@ -96,7 +94,7 @@ public class ChooseImageForCropFragment extends BottomSheetDialogFragment implem
         int height = (600 + sizeRand.nextInt(max));
         width -= (width % 100);
         height -= (height % 100);
-        String url = String.format(Locale.US, "http://lorempixel.com/%d/%d/", width, height);
+        String url = String.format(Locale.US, "https://picsum.photos/%d/%d/", width, height);
         return Uri.parse(url);
     }
 
